@@ -79,16 +79,20 @@
                     <div class="col-lg-12">
                         <div class="wpo-cta-text">
                             <!-- <h2>La compra de tickets ha culminado. El lunes 14 de febrero se anunciarán los ganadores.</h2> -->
-                            <form onsubmit="window.location = 'https://donations.meals4hope.org/donations/details?locale=es&currency='  + currency.value + '&frecuency=' + frecuency.value + '&m4h_source=sosterremoto&amount=' + (document.getElementById('customAmount').value || amount.value); return false;">
+                            <form onsubmit="window.location = 'https://donations.meals4hope.org/donations/details?locale=es&currency='  + currency.value + '&frecuency=' + document.querySelector('input[name=frecuency]:checked').value + '&m4h_source=sosterremoto&amount=' + (document.getElementById('customAmount').value || amount.value); return false;">
                                 <select id="currency" name="currency" class="form-control input-lg center-block" style="margin-bottom:20px;margin-top:20px;width:280px" required>
                                     <option value="EUR">Elija la moneda de pago</option>
                                     <option value="EUR">Euros</option>
                                     <option value="USD">Dólares</option>
                                 </select>
-                                <select id="frecuency" name="frecuency" class="form-control input-lg center-block" style="margin-bottom:20px;margin-top:20px;width:280px" required>
-                                    <option value="single" selected>Pago único</option>
-                                    <option value="monthly">Pago mensual</option>
-                                </select>
+                                <div class="center-block" style="margin-bottom:20px;margin-top:20px;width:280px;text-align:center">
+                                    <label style="margin-right:20px;font-weight:normal;cursor:pointer">
+                                        <input type="radio" name="frecuency" value="single" checked> Pago único
+                                    </label>
+                                    <label style="font-weight:normal;cursor:pointer">
+                                        <input type="radio" name="frecuency" value="monthly"> Pago mensual
+                                    </label>
+                                </div>
                                 <select id="amount" name="amount" class="form-control input-lg center-block" style="margin-bottom:20px;margin-top:20px;width:280px" required>
                                     <option value=10>Elige tu monto de donación</option>
                                     <option value=10>10</option>
